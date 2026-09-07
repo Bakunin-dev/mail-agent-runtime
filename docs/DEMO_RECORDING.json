@@ -1,0 +1,98 @@
+{
+  "mode": "recorded-synthetic-execution",
+  "frames": [
+    {
+      "title": "Поиск выполняется без чтения тел",
+      "command": "query.search(query={}, page_size=5)",
+      "lines": [
+        "Найдено писем: 12",
+        "На первой странице: 5",
+        "Обращений за телами: 0",
+        "Полнота поиска: complete"
+      ]
+    },
+    {
+      "title": "Выбранное письмо проходит через оригинальную проекцию",
+      "command": "query.read(refs=[selected_ref], detail=\"preview\")",
+      "lines": [
+        "Подготовлено писем: 1",
+        "Символов в выдаче: 240",
+        "Текст усечён: True",
+        "Покрытие: partial_context_budget"
+      ]
+    },
+    {
+      "title": "Новое письмо создаёт предложения",
+      "command": "agent.receive(event_key=\"portfolio-demo\")",
+      "lines": [
+        "Предложений: 2 — reply, bitrix_task",
+        "Состояние: ожидают отдельного решения",
+        "Демо-ответов: 0",
+        "Задач CRM: 0"
+      ]
+    },
+    {
+      "title": "Отдельное подтверждение разрешает демо-действия",
+      "command": "actions.decide(action_id, approve=True)  # для каждого предложения",
+      "lines": [
+        "Демо-ответов: 1",
+        "Задач CRM: 1",
+        "Оба предложения: completed",
+        "Все эффекты существуют только в памяти"
+      ]
+    },
+    {
+      "title": "Повтор не создаёт дубликаты",
+      "command": "decide(approve=True) повторно; receive(тот же event_key)",
+      "lines": [
+        "Повтор события распознан: True",
+        "Демо-ответов по-прежнему: 1",
+        "Задач CRM по-прежнему: 1",
+        "Проверки количества: PASS"
+      ]
+    },
+    {
+      "title": "Лимит останавливает чтение до извлечения тела",
+      "command": "query.total_byte_limit = 1; query.read(selected_ref)",
+      "lines": [
+        "Причина: batch_byte_budget_exhausted",
+        "Покрытие: partial_size_budget",
+        "Дополнительных чтений: 0",
+        "Проверка ограничения: PASS"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "bitrix_connector/__init__.py": "c419a06bed9c99698d7d3edc9b193e4c42b3e44abdf416fbaa88d48c0fcadace",
+    "bitrix_connector/synthetic.py": "1aa3d4feb0632656a7f56b7cbc4f315597939c750ce431dc24ceb5b506c2ccb8",
+    "demo.py": "67e187130a5b68411f81d5455c01f6a9c161c136d13bf1f2b4f213cc0ef78f0c",
+    "mail_connector/__init__.py": "7c6297966321abdcb668a02908361244acaf50f0a935de266eb26ceeb153ef93",
+    "mail_connector/models/__init__.py": "f5ba1e178960ecf977a7e44c250efbde533f18ec82d726e860daf6b9283bc6a1",
+    "mail_connector/models/folder.py": "b05348d7277cd33703e43228876b6606f25037fac8c939861cfafb5bfc9ea678",
+    "mail_connector/models/metadata.py": "a55f48007b281784cb3d465f12259bf95e24733c3e3b8d01d8c022aae41e2a03",
+    "mail_connector/models/query.py": "b4165f8064ffd5c8a84ae072cbde070c803fc8970e2feac3222b193f7a19ccd1",
+    "mail_connector/models/result.py": "f056535bc5f5d8afcce39384b6cc3abd8234076d49683fe03274638ae0c73740",
+    "mail_connector/synthetic.py": "8e1d5d2dce55932a71e59844aebac512fb423c9b3b699c2bf1354976a7ed9791",
+    "openwebui_tools/__init__.py": "b65fdf714c38561b5634f248a940fe7f0a3642924ab40a3e71db63d4e2fe517d",
+    "openwebui_tools/mail_agent_demo.py": "ae6cd9889040395314630292d1302c4f6142f660a959008f667f72134e6b0c4a",
+    "server/__init__.py": "d8aeb9fc1452b6eb446669aee67114e506188721d543c6664e483f34032d2210",
+    "server/__main__.py": "b7d408d05b87e74fba2b0f7d11469518d9b5228cab6ff56e63b33211b3f105cf",
+    "server/actions.py": "29d8932c7ddf2b71045b43f85cad335122065cea92cd03d20ab5db858a08ba20",
+    "server/app.py": "b8e07365f834680b1dd1708a721173ffb59b252f53e65a1204905a7f37dbad01",
+    "server/errors.py": "11369465c6f70cb04d1a1ea12310e81e33a9a956181886e0268de24739940fa2",
+    "server/integrations/__init__.py": "978583f8151ef21597a75015ab21b8111e665209f6b9ae35d58f70d78ee7a85d",
+    "server/integrations/mail_progress.py": "87cbcfb525539a008a2fa05916b99cab1ef92c938b2c170eef3156c4b7bfeba6",
+    "server/mail_query/__init__.py": "5762361d8fd4b6c28c702908ca3c0974c6e88c7985cdf87f1b803c6a7ab013b5",
+    "server/mail_query/attention.py": "b9912656181c96a53d282c6d9da3ae2b09325203fc0cd631634513ae5f3fa7f1",
+    "server/mail_query/models.py": "21d4b8a4afed9e6e246cf4db3fb15bab56f72e1e4477241cd19989a924d5fc59",
+    "server/mail_query/portal_projection.py": "de622789c631dcecfb217978395a06e39653ed1230cab8cf7999c9d50402b7b9",
+    "server/mail_query/projection.py": "83a71413823b5ecc08057abd7217e4b6507e65571c5bf182bed2de09ac19356c",
+    "server/mail_query/service.py": "52e687e883dcc3e6fae0f4d4773a4590979cf7d6dcfb84d408e089ee0b846d44",
+    "server/proactive.py": "f41775256df3ef842fe18babb614aed7072bc1b2ecaccb5efadcdc0411ff6097",
+    "tests/server/test_projection.py": "a4178098a18ed736025d7f0236d611bd7d4d4f60502b9726d4928705b9507525",
+    "tests/test_boundaries.py": "27ddb1b6fa95859a7a317390e0e2933ccab424ff477d27cc8899fc6be8d39e14",
+    "tests/test_release.py": "25ca99f052c1279568ec92ed550130fdf2c1902ecc81f9872fce52875074a03e",
+    "tests/test_showcase.py": "f6f91aa9f08d87f631b226f4d84223e595b3e703f901a89c83e48b5d0f8e6721",
+    "tools/release.py": "47507bd2bf30ca1b26a4cb0a3ac67d7133113e80a4585d50429b4ba93dd22091"
+  }
+}

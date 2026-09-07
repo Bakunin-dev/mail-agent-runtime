@@ -1,0 +1,10 @@
+{
+  "mail_connector/models/folder.py": "b05348d7277cd33703e43228876b6606f25037fac8c939861cfafb5bfc9ea678",
+  "mail_connector/models/metadata.py": "a55f48007b281784cb3d465f12259bf95e24733c3e3b8d01d8c022aae41e2a03",
+  "mail_connector/models/result.py": "f056535bc5f5d8afcce39384b6cc3abd8234076d49683fe03274638ae0c73740",
+  "mail_connector/models/query.py": "b4165f8064ffd5c8a84ae072cbde070c803fc8970e2feac3222b193f7a19ccd1",
+  "server/mail_query/projection.py": "83a71413823b5ecc08057abd7217e4b6507e65571c5bf182bed2de09ac19356c",
+  "server/mail_query/portal_projection.py": "de622789c631dcecfb217978395a06e39653ed1230cab8cf7999c9d50402b7b9",
+  "server/integrations/mail_progress.py": "87cbcfb525539a008a2fa05916b99cab1ef92c938b2c170eef3156c4b7bfeba6",
+  "tests/server/test_projection.py": "a4178098a18ed736025d7f0236d611bd7d4d4f60502b9726d4928705b9507525"
+}
