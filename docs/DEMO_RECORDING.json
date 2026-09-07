@@ -65,7 +65,7 @@
   "source_sha256": {
     "bitrix_connector/__init__.py": "c419a06bed9c99698d7d3edc9b193e4c42b3e44abdf416fbaa88d48c0fcadace",
     "bitrix_connector/synthetic.py": "1aa3d4feb0632656a7f56b7cbc4f315597939c750ce431dc24ceb5b506c2ccb8",
-    "demo.py": "67e187130a5b68411f81d5455c01f6a9c161c136d13bf1f2b4f213cc0ef78f0c",
+    "demo.py": "567aa42b5b6e8327f24e0c1e6954b42b6f561177baf2f6773dc538c14ba9c0e5",
     "mail_connector/__init__.py": "7c6297966321abdcb668a02908361244acaf50f0a935de266eb26ceeb153ef93",
     "mail_connector/models/__init__.py": "f5ba1e178960ecf977a7e44c250efbde533f18ec82d726e860daf6b9283bc6a1",
     "mail_connector/models/folder.py": "b05348d7277cd33703e43228876b6606f25037fac8c939861cfafb5bfc9ea678",
@@ -92,7 +92,7 @@
     "tests/server/test_projection.py": "a4178098a18ed736025d7f0236d611bd7d4d4f60502b9726d4928705b9507525",
     "tests/test_boundaries.py": "27ddb1b6fa95859a7a317390e0e2933ccab424ff477d27cc8899fc6be8d39e14",
     "tests/test_release.py": "25ca99f052c1279568ec92ed550130fdf2c1902ecc81f9872fce52875074a03e",
-    "tests/test_showcase.py": "f6f91aa9f08d87f631b226f4d84223e595b3e703f901a89c83e48b5d0f8e6721",
+    "tests/test_showcase.py": "5618e1dafa48fce95b5eeb6b9aa5fd8f4c320ba3fa2840e8bf774bdd2d199198",
     "tools/release.py": "47507bd2bf30ca1b26a4cb0a3ac67d7133113e80a4585d50429b4ba93dd22091"
   }
 }

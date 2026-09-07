@@ -1,6 +1,7 @@
 """Executable walkthrough of real presentation code and simulated engines."""
 import argparse
 import json
+import sys
 
 from server.actions import ActionRequest
 from server.app import Session
@@ -77,6 +78,8 @@ def interactive():
 
 
 if __name__ == "__main__":
+    # Redirected Windows output may default to cp1252, which cannot encode mail text.
+    sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scenario", choices=["tour", "mail", "limits", "proactive"], default="tour")
     parser.add_argument("--approve-demo", action="store_true", help="explicitly approve synthetic proposals")

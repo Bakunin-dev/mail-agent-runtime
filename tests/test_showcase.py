@@ -189,3 +189,19 @@ def test_capacity_is_fail_fast(client):
         assert response.status_code == 503 and response.json()["error"] == "capacity_busy"
     finally:
         client.app.state.lock.release()
+def test_cli_preserves_cyrillic_in_redirected_windows_output():
+    import os
+    from pathlib import Path
+    import subprocess
+    import sys
+
+    root = Path(__file__).resolve().parents[1]
+    result = subprocess.run(
+        [sys.executable, str(root / "demo.py"), "--scenario", "proactive", "--approve-demo"],
+        cwd=root, env={**os.environ, "PYTHONIOENCODING": "cp1252"},
+        capture_output=True, timeout=30,
+    )
+    assert result.returncode == 0, result.stderr.decode("utf-8", errors="replace")
+    output = result.stdout.decode("utf-8")
+    assert any("\u0400" <= char <= "\u04ff" for char in output)
+    assert "After repeated approvals: outbox = 1 CRM tasks = 1" in output
