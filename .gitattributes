@@ -1,0 +1,10 @@
+* text=auto eol=lf
+# Preserve exact original bytes used by provenance.json across Windows/Linux clones.
+mail_connector/models/folder.py -text
+mail_connector/models/metadata.py -text
+mail_connector/models/result.py -text
+mail_connector/models/query.py -text
+server/mail_query/projection.py -text
+server/mail_query/portal_projection.py -text
+server/integrations/mail_progress.py -text
+tests/server/test_projection.py -text
